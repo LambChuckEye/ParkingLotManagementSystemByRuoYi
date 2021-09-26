@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.custom.mapper.CusModelMapper">
+    
+    <resultMap type="CusModel" id="CusModelResult">
+        <result property="modelId"    column="model_id"    />
+        <result property="parkinglotId"    column="parkinglot_id"    />
+        <result property="sizeModel"    column="size_model"    />
+        <result property="regModel"    column="reg_model"    />
+    </resultMap>
+
+    <sql id="selectCusModelVo">
+        select model_id, parkinglot_id, size_model, reg_model from cus_model
+    </sql>
+
+    <select id="selectCusModelList" parameterType="CusModel" resultMap="CusModelResult">
+        <include refid="selectCusModelVo"/>
+        <where>  
+            <if test="parkinglotId != null "> and parkinglot_id = #{parkinglotId}</if>
+            <if test="sizeModel != null  and sizeModel != ''"> and size_model = #{sizeModel}</if>
+            <if test="regModel != null  and regModel != ''"> and reg_model = #{regModel}</if>
+        </where>
+    </select>
+    
+    <select id="selectCusModelByModelId" parameterType="Long" resultMap="CusModelResult">
+        <include refid="selectCusModelVo"/>
+        where model_id = #{modelId}
+    </select>
+        
+    <insert id="insertCusModel" parameterType="CusModel" useGeneratedKeys="true" keyProperty="modelId">
+        insert into cus_model
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="parkinglotId != null">parkinglot_id,</if>
+            <if test="sizeModel != null">size_model,</if>
+            <if test="regModel != null">reg_model,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="parkinglotId != null">#{parkinglotId},</if>
+            <if test="sizeModel != null">#{sizeModel},</if>
+            <if test="regModel != null">#{regModel},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCusModel" parameterType="CusModel">
+        update cus_model
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parkinglotId != null">parkinglot_id = #{parkinglotId},</if>
+            <if test="sizeModel != null">size_model = #{sizeModel},</if>
+            <if test="regModel != null">reg_model = #{regModel},</if>
+        </trim>
+        where model_id = #{modelId}
+    </update>
+
+    <delete id="deleteCusModelByModelId" parameterType="Long">
+        delete from cus_model where model_id = #{modelId}
+    </delete>
+
+    <delete id="deleteCusModelByModelIds" parameterType="String">
+        delete from cus_model where model_id in 
+        <foreach item="modelId" collection="array" open="(" separator="," close=")">
+            #{modelId}
+        </foreach>
+    </delete>
+
+</mapper>

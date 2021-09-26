@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('停车场信息管理列表')" />
+</head>
+<body class="gray-bg">
+     <div class="container-div">
+        <div class="row">
+            <div class="col-sm-12 search-collapse">
+                <form id="formId">
+                    <div class="select-list">
+                        <ul>
+                            <li>
+                                <label>停车场总车位：</label>
+                                <input type="text" name="parkinglotCapacity"/>
+                            </li>
+                            <li>
+                                <label>停车场所属管理员id：</label>
+                                <input type="text" name="userId"/>
+                            </li>
+                            <li>
+                                <label>停车场名称：</label>
+                                <input type="text" name="parkinglotName"/>
+                            </li>
+                            <li>
+                                <label>停车场位置：</label>
+                                <input type="text" name="parkinglotLoc"/>
+                            </li>
+                            <li>
+                                <label>摄像头图片文件位置：</label>
+                                <input type="text" name="parkinglotCamera"/>
+                            </li>
+                            <li>
+                                <label>停车场空闲车位：</label>
+                                <input type="text" name="parkinglotSpare"/>
+                            </li>
+                            <li>
+                                <label>渲染图位置：</label>
+                                <input type="text" name="image"/>
+                            </li>
+                            <li>
+                                <label>渲染日期：</label>
+                                <input type="text" class="time-input" placeholder="请选择渲染日期" name="imageUpdate"/>
+                            </li>
+                            <li>
+                                <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
+                                <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i class="fa fa-refresh"></i>&nbsp;重置</a>
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+            </div>
+
+            <div class="btn-group-sm" id="toolbar" role="group">
+                <a class="btn btn-success" onclick="$.operate.add()" shiro:hasPermission="custom:parkinglot:add">
+                    <i class="fa fa-plus"></i> 添加
+                </a>
+                <a class="btn btn-primary single disabled" onclick="$.operate.edit()" shiro:hasPermission="custom:parkinglot:edit">
+                    <i class="fa fa-edit"></i> 修改
+                </a>
+                <a class="btn btn-danger multiple disabled" onclick="$.operate.removeAll()" shiro:hasPermission="custom:parkinglot:remove">
+                    <i class="fa fa-remove"></i> 删除
+                </a>
+                <a class="btn btn-warning" onclick="$.table.exportExcel()" shiro:hasPermission="custom:parkinglot:export">
+                    <i class="fa fa-download"></i> 导出
+                </a>
+            </div>
+            <div class="col-sm-12 select-table table-striped">
+                <table id="bootstrap-table"></table>
+            </div>
+        </div>
+    </div>
+    <th:block th:include="include :: footer" />
+    <script th:inline="javascript">
+        var editFlag = [[${@permission.hasPermi('custom:parkinglot:edit')}]];
+        var removeFlag = [[${@permission.hasPermi('custom:parkinglot:remove')}]];
+
+        var prefix = ctx + "custom/parkinglot";
+        $(function() {
+            var options = {
+                url: prefix + "/list",
+                createUrl: prefix + "/add",
+                updateUrl: prefix + "/edit/{id}",
+                removeUrl: prefix + "/remove",
+                exportUrl: prefix + "/export",
+                modalName: "停车场信息管理",
+                columns: [{
+                    checkbox: true
+                },
+                {
+                    field: 'parkinglotCapacity',
+                    title: '停车场总车位'
+                },
+                {
+                    field: 'parkinglotId',
+                    title: '停车场id',
+                    visible: false
+                },
+                {
+                    field: 'userId',
+                    title: '停车场所属管理员id'
+                },
+                {
+                    field: 'parkinglotName',
+                    title: '停车场名称'
+                },
+                {
+                    field: 'parkinglotLoc',
+                    title: '停车场位置'
+                },
+                {
+                    field: 'parkinglotCamera',
+                    title: '摄像头图片文件位置',
+                    formatter: function (value, row, index) {
+                        return '<img src="' + value + '" width="75" height="75">';
+                    }
+                },
+                {
+                    field: 'parkinglotSpare',
+                    title: '停车场空闲车位'
+                },
+                {
+                    field: 'image',
+                    title: '渲染图位置',
+                    formatter: function (value, row, index) {
+                        return '<img src="' + value + '" width="75" height="75">';
+                    }
+                },
+
+                {
+                    field: 'imageUpdate',
+                    title: '渲染日期'
+                },
+                {
+                    field: 'remark',
+                    title: '停车场描述'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function(value, row, index) {
+                        var actions = [];
+                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.parkinglotId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
+                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.parkinglotId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        return actions.join('');
+                    }
+                }]
+            };
+            $.table.init(options);
+        });
+    </script>
+</body>
+</html>

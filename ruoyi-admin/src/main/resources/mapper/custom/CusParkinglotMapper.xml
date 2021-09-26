@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.custom.mapper.CusParkinglotMapper">
+    
+    <resultMap type="CusParkinglot" id="CusParkinglotResult">
+        <result property="parkinglotCapacity"    column="parkinglot_capacity"    />
+        <result property="parkinglotId"    column="parkinglot_id"    />
+        <result property="userId"    column="user_id"    />
+        <result property="parkinglotName"    column="parkinglot_name"    />
+        <result property="parkinglotLoc"    column="parkinglot_loc"    />
+        <result property="parkinglotCamera"    column="parkinglot_camera"    />
+        <result property="parkinglotSpare"    column="parkinglot_spare"    />
+        <result property="image"    column="image"    />
+        <result property="imageUpdate"    column="image_update"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <resultMap id="CusParkinglotCusModelResult" type="CusParkinglot" extends="CusParkinglotResult">
+        <collection property="cusModelList" notNullColumn="sub_model_id" javaType="java.util.List" resultMap="CusModelResult" />
+    </resultMap>
+
+    <resultMap type="CusModel" id="CusModelResult">
+        <result property="modelId"    column="sub_model_id"    />
+        <result property="parkinglotId"    column="sub_parkinglot_id"    />
+        <result property="sizeModel"    column="sub_size_model"    />
+        <result property="regModel"    column="sub_reg_model"    />
+    </resultMap>
+
+    <sql id="selectCusParkinglotVo">
+        select parkinglot_capacity, parkinglot_id, user_id, parkinglot_name, parkinglot_loc, parkinglot_camera, parkinglot_spare, image, image_update, remark from cus_parkinglot
+    </sql>
+
+    <select id="selectCusParkinglotList" parameterType="CusParkinglot" resultMap="CusParkinglotResult">
+        <include refid="selectCusParkinglotVo"/>
+        <where>  
+            <if test="parkinglotCapacity != null "> and parkinglot_capacity = #{parkinglotCapacity}</if>
+            <if test="userId != null "> and user_id = #{userId}</if>
+            <if test="parkinglotName != null  and parkinglotName != ''"> and parkinglot_name like concat('%', #{parkinglotName}, '%')</if>
+            <if test="parkinglotLoc != null  and parkinglotLoc != ''"> and parkinglot_loc like concat('%', #{parkinglotLoc}, '%')</if>
+            <if test="parkinglotCamera != null  and parkinglotCamera != ''"> and parkinglot_camera = #{parkinglotCamera}</if>
+            <if test="parkinglotSpare != null "> and parkinglot_spare = #{parkinglotSpare}</if>
+            <if test="image != null  and image != ''"> and image = #{image}</if>
+            <if test="imageUpdate != null "> and image_update = #{imageUpdate}</if>
+        </where>
+    </select>
+    
+    <select id="selectCusParkinglotByParkinglotId" parameterType="Long" resultMap="CusParkinglotCusModelResult">
+        select a.parkinglot_capacity, a.parkinglot_id, a.user_id, a.parkinglot_name, a.parkinglot_loc, a.parkinglot_camera, a.parkinglot_spare, a.image, a.image_update, a.remark,
+            b.model_id as sub_model_id, b.parkinglot_id as sub_parkinglot_id, b.size_model as sub_size_model, b.reg_model as sub_reg_model
+        from cus_parkinglot a
+        left join cus_model b on b.parkinglot_id = a.parkinglot_id
+        where a.parkinglot_id = #{parkinglotId}
+    </select>
+        
+    <insert id="insertCusParkinglot" parameterType="CusParkinglot" useGeneratedKeys="true" keyProperty="parkinglotId">
+        insert into cus_parkinglot
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="parkinglotCapacity != null">parkinglot_capacity,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="parkinglotName != null and parkinglotName != ''">parkinglot_name,</if>
+            <if test="parkinglotLoc != null and parkinglotLoc != ''">parkinglot_loc,</if>
+            <if test="parkinglotCamera != null">parkinglot_camera,</if>
+            <if test="parkinglotSpare != null">parkinglot_spare,</if>
+            <if test="image != null">image,</if>
+            <if test="imageUpdate != null">image_update,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="parkinglotCapacity != null">#{parkinglotCapacity},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="parkinglotName != null and parkinglotName != ''">#{parkinglotName},</if>
+            <if test="parkinglotLoc != null and parkinglotLoc != ''">#{parkinglotLoc},</if>
+            <if test="parkinglotCamera != null">#{parkinglotCamera},</if>
+            <if test="parkinglotSpare != null">#{parkinglotSpare},</if>
+            <if test="image != null">#{image},</if>
+            <if test="imageUpdate != null">#{imageUpdate},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateCusParkinglot" parameterType="CusParkinglot">
+        update cus_parkinglot
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parkinglotCapacity != null">parkinglot_capacity = #{parkinglotCapacity},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="parkinglotName != null and parkinglotName != ''">parkinglot_name = #{parkinglotName},</if>
+            <if test="parkinglotLoc != null and parkinglotLoc != ''">parkinglot_loc = #{parkinglotLoc},</if>
+            <if test="parkinglotCamera != null">parkinglot_camera = #{parkinglotCamera},</if>
+            <if test="parkinglotSpare != null">parkinglot_spare = #{parkinglotSpare},</if>
+            <if test="image != null">image = #{image},</if>
+            <if test="imageUpdate != null">image_update = #{imageUpdate},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where parkinglot_id = #{parkinglotId}
+    </update>
+
+    <delete id="deleteCusParkinglotByParkinglotId" parameterType="Long">
+        delete from cus_parkinglot where parkinglot_id = #{parkinglotId}
+    </delete>
+
+    <delete id="deleteCusParkinglotByParkinglotIds" parameterType="String">
+        delete from cus_parkinglot where parkinglot_id in 
+        <foreach item="parkinglotId" collection="array" open="(" separator="," close=")">
+            #{parkinglotId}
+        </foreach>
+    </delete>
+    
+    <delete id="deleteCusModelByParkinglotIds" parameterType="String">
+        delete from cus_model where parkinglot_id in 
+        <foreach item="parkinglotId" collection="array" open="(" separator="," close=")">
+            #{parkinglotId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteCusModelByParkinglotId" parameterType="Long">
+        delete from cus_model where parkinglot_id = #{parkinglotId}
+    </delete>
+
+    <insert id="batchCusModel">
+        insert into cus_model( model_id, parkinglot_id, size_model, reg_model) values
+		<foreach item="item" index="index" collection="list" separator=",">
+            ( #{item.modelId}, #{item.parkinglotId}, #{item.sizeModel}, #{item.regModel})
+        </foreach>
+    </insert>
+
+</mapper>
