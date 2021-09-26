@@ -1,6 +1,7 @@
 package com.ruoyi.custom.controller;
 
 import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,14 +22,13 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 停车场信息管理Controller
- * 
+ *
  * @author kamiu
  * @date 2021-09-17
  */
 @Controller
 @RequestMapping("/custom/parkinglot")
-public class CusParkinglotController extends BaseController
-{
+public class CusParkinglotController extends BaseController {
     private String prefix = "custom/parkinglot";
 
     @Autowired
@@ -36,9 +36,18 @@ public class CusParkinglotController extends BaseController
 
     @RequiresPermissions("custom:parkinglot:view")
     @GetMapping()
-    public String parkinglot()
-    {
+    public String parkinglot() {
         return prefix + "/parkinglot";
+    }
+
+    @GetMapping("/init")
+    public String parkinglotInit() {
+        return prefix + "/init";
+    }
+    @GetMapping("/init/{Id}")
+    public String parkinglotInitId(@PathVariable("Id") Long Id) {
+        System.out.println(Id);
+        return prefix + "/init";
     }
 
     /**
@@ -47,8 +56,7 @@ public class CusParkinglotController extends BaseController
     @RequiresPermissions("custom:parkinglot:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(CusParkinglot cusParkinglot)
-    {
+    public TableDataInfo list(CusParkinglot cusParkinglot) {
         startPage();
         List<CusParkinglot> list = cusParkinglotService.selectCusParkinglotList(cusParkinglot);
         return getDataTable(list);
@@ -61,8 +69,7 @@ public class CusParkinglotController extends BaseController
     @Log(title = "停车场信息管理", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(CusParkinglot cusParkinglot)
-    {
+    public AjaxResult export(CusParkinglot cusParkinglot) {
         List<CusParkinglot> list = cusParkinglotService.selectCusParkinglotList(cusParkinglot);
         ExcelUtil<CusParkinglot> util = new ExcelUtil<CusParkinglot>(CusParkinglot.class);
         return util.exportExcel(list, "停车场信息管理数据");
@@ -72,8 +79,7 @@ public class CusParkinglotController extends BaseController
      * 新增停车场信息管理
      */
     @GetMapping("/add")
-    public String add()
-    {
+    public String add() {
         return prefix + "/add";
     }
 
@@ -84,8 +90,7 @@ public class CusParkinglotController extends BaseController
     @Log(title = "停车场信息管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(CusParkinglot cusParkinglot)
-    {
+    public AjaxResult addSave(CusParkinglot cusParkinglot) {
         return toAjax(cusParkinglotService.insertCusParkinglot(cusParkinglot));
     }
 
@@ -93,8 +98,7 @@ public class CusParkinglotController extends BaseController
      * 修改停车场信息管理
      */
     @GetMapping("/edit/{parkinglotId}")
-    public String edit(@PathVariable("parkinglotId") Long parkinglotId, ModelMap mmap)
-    {
+    public String edit(@PathVariable("parkinglotId") Long parkinglotId, ModelMap mmap) {
         CusParkinglot cusParkinglot = cusParkinglotService.selectCusParkinglotByParkinglotId(parkinglotId);
         mmap.put("cusParkinglot", cusParkinglot);
         return prefix + "/edit";
@@ -107,8 +111,7 @@ public class CusParkinglotController extends BaseController
     @Log(title = "停车场信息管理", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(CusParkinglot cusParkinglot)
-    {
+    public AjaxResult editSave(CusParkinglot cusParkinglot) {
         return toAjax(cusParkinglotService.updateCusParkinglot(cusParkinglot));
     }
 
@@ -117,10 +120,9 @@ public class CusParkinglotController extends BaseController
      */
     @RequiresPermissions("custom:parkinglot:remove")
     @Log(title = "停车场信息管理", businessType = BusinessType.DELETE)
-    @PostMapping( "/remove")
+    @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(cusParkinglotService.deleteCusParkinglotByParkinglotIds(ids));
     }
 }
