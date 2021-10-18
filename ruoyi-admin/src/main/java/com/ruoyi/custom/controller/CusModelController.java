@@ -1,6 +1,7 @@
 package com.ruoyi.custom.controller;
 
 import java.util.List;
+
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,14 +22,13 @@ import com.ruoyi.common.core.page.TableDataInfo;
 
 /**
  * 模型信息管理Controller
- * 
+ *
  * @author kamiu
  * @date 2021-09-17
  */
 @Controller
 @RequestMapping("/custom/model")
-public class CusModelController extends BaseController
-{
+public class CusModelController extends BaseController {
     private String prefix = "custom/model";
 
     @Autowired
@@ -36,8 +36,7 @@ public class CusModelController extends BaseController
 
     @RequiresPermissions("custom:model:view")
     @GetMapping()
-    public String model()
-    {
+    public String model() {
         return prefix + "/model";
     }
 
@@ -47,8 +46,7 @@ public class CusModelController extends BaseController
     @RequiresPermissions("custom:model:list")
     @PostMapping("/list")
     @ResponseBody
-    public TableDataInfo list(CusModel cusModel)
-    {
+    public TableDataInfo list(CusModel cusModel) {
         startPage();
         List<CusModel> list = cusModelService.selectCusModelList(cusModel);
         return getDataTable(list);
@@ -61,8 +59,7 @@ public class CusModelController extends BaseController
     @Log(title = "模型信息管理", businessType = BusinessType.EXPORT)
     @PostMapping("/export")
     @ResponseBody
-    public AjaxResult export(CusModel cusModel)
-    {
+    public AjaxResult export(CusModel cusModel) {
         List<CusModel> list = cusModelService.selectCusModelList(cusModel);
         ExcelUtil<CusModel> util = new ExcelUtil<CusModel>(CusModel.class);
         return util.exportExcel(list, "模型信息管理数据");
@@ -72,9 +69,8 @@ public class CusModelController extends BaseController
      * 新增模型信息管理
      */
     @GetMapping("/add")
-    public String add()
-    {
-        return "test";
+    public String add() {
+        return prefix + "/add";
     }
 
     /**
@@ -84,8 +80,7 @@ public class CusModelController extends BaseController
     @Log(title = "模型信息管理", businessType = BusinessType.INSERT)
     @PostMapping("/add")
     @ResponseBody
-    public AjaxResult addSave(CusModel cusModel)
-    {
+    public AjaxResult addSave(CusModel cusModel) {
         return toAjax(cusModelService.insertCusModel(cusModel));
     }
 
@@ -93,8 +88,7 @@ public class CusModelController extends BaseController
      * 修改模型信息管理
      */
     @GetMapping("/edit/{modelId}")
-    public String edit(@PathVariable("modelId") Long modelId, ModelMap mmap)
-    {
+    public String edit(@PathVariable("modelId") Long modelId, ModelMap mmap) {
         CusModel cusModel = cusModelService.selectCusModelByModelId(modelId);
         mmap.put("cusModel", cusModel);
         return prefix + "/edit";
@@ -107,8 +101,7 @@ public class CusModelController extends BaseController
     @Log(title = "模型信息管理", businessType = BusinessType.UPDATE)
     @PostMapping("/edit")
     @ResponseBody
-    public AjaxResult editSave(CusModel cusModel)
-    {
+    public AjaxResult editSave(CusModel cusModel) {
         return toAjax(cusModelService.updateCusModel(cusModel));
     }
 
@@ -117,10 +110,9 @@ public class CusModelController extends BaseController
      */
     @RequiresPermissions("custom:model:remove")
     @Log(title = "模型信息管理", businessType = BusinessType.DELETE)
-    @PostMapping( "/remove")
+    @PostMapping("/remove")
     @ResponseBody
-    public AjaxResult remove(String ids)
-    {
+    public AjaxResult remove(String ids) {
         return toAjax(cusModelService.deleteCusModelByModelIds(ids));
     }
 }

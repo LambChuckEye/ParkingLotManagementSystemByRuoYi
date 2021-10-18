@@ -58,4 +58,18 @@ public interface ICusParkinglotService
      * @return 结果
      */
     public int deleteCusParkinglotByParkinglotId(Long parkinglotId);
+
+    /**
+     * 调用python脚本进行python预测
+     *
+     * @param parkinglotId 停车场信息管理主键
+     * @return 结果
+     */
+    public CusParkinglot predictByParkinglotId(Long parkinglotId);
+
+    /**
+     * 模型数据初始化
+     * @param parkinglotId
+     */
+    void initById(Long parkinglotId);
 }

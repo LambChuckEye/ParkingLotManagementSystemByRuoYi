@@ -40,6 +40,10 @@ public class CusParkinglotController extends BaseController {
         return prefix + "/parkinglot";
     }
 
+    /**
+     * 初始化测试接口
+     * @return
+     */
     @GetMapping("/init")
     public String parkinglotInit() {
         return prefix + "/init";
@@ -49,6 +53,7 @@ public class CusParkinglotController extends BaseController {
         System.out.println(Id);
         return prefix + "/init";
     }
+
 
     /**
      * 查询停车场信息管理列表

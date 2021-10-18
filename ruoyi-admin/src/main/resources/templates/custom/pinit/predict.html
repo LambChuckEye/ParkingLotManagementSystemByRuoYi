@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <th:block th:include="include :: header('停车场信息管理列表')"/>
+</head>
+<body class="gray-bg">
+<div class="container-div">
+    <div class="row">
+        <div class="col-sm-12 search-collapse">
+            <form id="formId">
+                <div class="select-list">
+                    <ul>
+                        <li>
+                            <label>停车场名称：</label>
+                            <input type="text" name="parkinglotName"/>
+                        </li>
+                        <li>
+                            <label>停车场位置：</label>
+                            <input type="text" name="parkinglotLoc"/>
+                        </li>
+
+                        <li>
+                            <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i
+                                    class="fa fa-search"></i>&nbsp;搜索</a>
+                            <a class="btn btn-warning btn-rounded btn-sm" onclick="$.form.reset()"><i
+                                    class="fa fa-refresh"></i>&nbsp;重置</a>
+                        </li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-sm-12 select-table table-striped">
+            <table id="bootstrap-table"></table>
+        </div>
+    </div>
+</div>
+<th:block th:include="include :: footer"/>
+<script th:inline="javascript">
+    var editFlag = [[${@permission.hasPermi('custom:pinit:edit')}]];
+    var detailFlag = [[${@permission.hasPermi('custom:pinit:detail')}]];
+
+    function init(parkinglotId) {
+        $.ajax({
+            url: prefix + "/initModel/" + parkinglotId,
+            success: function (res) {
+                if (res)
+                    alert('初始化成功')
+            },
+            error: function (e) {
+                console.log('!!!')
+            }
+
+        })
+    }
+
+    var prefix = ctx + "custom/pinit";
+    $(function () {
+        var options = {
+            url: prefix + "/list",
+            updateUrl: prefix + "/init/{id}",
+            detailUrl: prefix + "/detail/{id}",
+            exportUrl: prefix + "/export",
+            modalName: "停车场信息管理",
+            columns: [{
+                checkbox: true
+            },
+                {
+                    field: 'parkinglotCapacity',
+                    title: '停车场总车位'
+                },
+                {
+                    field: 'parkinglotId',
+                    title: '停车场id',
+                    visible: false
+                },
+                {
+                    field: 'userId',
+                    title: '停车场所属管理员id'
+                },
+                {
+                    field: 'parkinglotName',
+                    title: '停车场名称'
+                },
+                {
+                    field: 'parkinglotLoc',
+                    title: '停车场位置'
+                },
+                {
+                    field: 'parkinglotCamera',
+                    title: '摄像头图片',
+                    formatter: function (value, row, index) {
+                        return $.table.imageView(value);
+                    }
+                },
+                {
+                    field: 'parkinglotSpare',
+                    title: '停车场空闲车位'
+                },
+                {
+                    field: 'image',
+                    title: '渲染图',
+                    formatter: function (value, row, index) {
+                        return $.table.imageView(value);
+                    }
+                }, {
+                    field: 'imageUpdate',
+                    title: '渲染日期'
+                },
+                {
+                    field: 'remark',
+                    title: '停车场描述'
+                },
+                {
+                    title: '操作',
+                    align: 'center',
+                    formatter: function (value, row, index) {
+                        var actions = [];
+                        permission = row.parkinglotCapacity > 0 ? false : true;
+                        if (!permission)
+                            actions.push('<a class="btn btn-info btn-xs " href="javascript:void(0)" onclick="$.operate.detail(\'' + row.parkinglotId + '\')"><i class="fa fa-info"></i>查询</a>');
+                        return actions.join('');
+                    }
+                }]
+        };
+        $.table.init(options);
+    });
+</script>
+</body>
+</html>

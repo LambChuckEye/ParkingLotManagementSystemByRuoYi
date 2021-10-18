@@ -11,6 +11,10 @@
                     <div class="select-list">
                         <ul>
                             <li>
+                                <label>停车场总车位：</label>
+                                <input type="text" name="parkinglotCapacity"/>
+                            </li>
+                            <li>
                                 <label>停车场所属管理员id：</label>
                                 <input type="text" name="userId"/>
                             </li>
@@ -21,6 +25,22 @@
                             <li>
                                 <label>停车场位置：</label>
                                 <input type="text" name="parkinglotLoc"/>
+                            </li>
+                            <li>
+                                <label>摄像头图片：</label>
+                                <input type="text" name="parkinglotCamera"/>
+                            </li>
+                            <li>
+                                <label>停车场空闲车位：</label>
+                                <input type="text" name="parkinglotSpare"/>
+                            </li>
+                            <li>
+                                <label>渲染图：</label>
+                                <input type="text" name="image"/>
+                            </li>
+                            <li>
+                                <label>渲染日期：</label>
+                                <input type="text" class="time-input" placeholder="请选择渲染日期" name="imageUpdate"/>
                             </li>
                             <li>
                                 <a class="btn btn-primary btn-rounded btn-sm" onclick="$.table.search()"><i class="fa fa-search"></i>&nbsp;搜索</a>
@@ -53,15 +73,15 @@
     <th:block th:include="include :: footer" />
     <script th:inline="javascript">
         var editFlag = [[${@permission.hasPermi('custom:parkinglot:edit')}]];
-        var removeFlag = [[${@permission.hasPermi('custom:parkinglot:remove')}]];
+        var detailFlag = [[${@permission.hasPermi('custom:parkinglot:detail')}]];
 
         var prefix = ctx + "custom/parkinglot";
         $(function() {
             var options = {
                 url: prefix + "/list",
                 createUrl: prefix + "/add",
-                updateUrl: prefix + "/edit/{id}",
-                removeUrl: prefix + "/remove",
+                updateUrl: prefix + "/init/{id}",
+                detailUrl: prefix + "/detail",
                 exportUrl: prefix + "/export",
                 modalName: "停车场信息管理",
                 columns: [{
@@ -120,8 +140,11 @@
                     align: 'center',
                     formatter: function(value, row, index) {
                         var actions = [];
-                        actions.push('<a class="btn btn-success btn-xs ' + editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.parkinglotId + '\')"><i class="fa fa-edit"></i>编辑</a> ');
-                        actions.push('<a class="btn btn-danger btn-xs ' + removeFlag + '" href="javascript:void(0)" onclick="$.operate.remove(\'' + row.parkinglotId + '\')"><i class="fa fa-remove"></i>删除</a>');
+                        permission=value.parkinglotCapacity;
+                        console.log(permission+'   '+typeof (permission));
+                        actions.push('<a class="btn btn-success btn-xs ' +permission+ editFlag + '" href="javascript:void(0)" onclick="$.operate.edit(\'' + row.parkinglotId + '\')"><i class="fa fa-edit"></i>初始化</a> ');
+                    // <a class="btn btn-success btn-xs ' + permission + '">包含权限字符串才能看到</a>
+                        actions.push('<a class="btn btn-danger btn-xs ' + detailFlag + '" href="javascript:void(0)" onclick="$.operate.detail(\'' + row.parkinglotId + '\')"><i class="fa fa-remove"></i>查询</a>');
                         return actions.join('');
                     }
                 }]

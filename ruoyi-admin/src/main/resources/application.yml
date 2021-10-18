@@ -12,6 +12,7 @@ ruoyi:
   profile: D:/ruoyi/uploadPath
   # 获取ip地址开关
   addressEnabled: false
+  prefix: D:/ruoyi/uploadPath/script/python_script/
 
 # 开发环境配置
 server:
