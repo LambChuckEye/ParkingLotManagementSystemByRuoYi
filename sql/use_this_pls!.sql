@@ -11,7 +11,7 @@
  Target Server Version : 50727
  File Encoding         : 65001
 
- Date: 26/09/2021 20:20:15
+ Date: 18/10/2021 08:40:50
 */
 
 SET NAMES utf8mb4;
@@ -27,12 +27,16 @@ CREATE TABLE `cus_model`  (
   `size_model` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '规模模型位置',
   `reg_model` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '识别模型位置',
   PRIMARY KEY (`model_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '模型表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '模型表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cus_model
 -- ----------------------------
-INSERT INTO `cus_model` VALUES (4, 3, 'c:\\\\dasd', 'D:\\\\dasd\\dasda');
+INSERT INTO `cus_model` VALUES (18, 6, '/profile/model/spot_dict.pickle', '/profile/model/net');
+INSERT INTO `cus_model` VALUES (19, 8, '/profile/model/spot_dict.pickle', '/profile/model/net');
+INSERT INTO `cus_model` VALUES (21, 7, '/profile/model/spot_dict.pickle', '/profile/model/net');
+INSERT INTO `cus_model` VALUES (22, 9, '/profile/model/spot_dict.pickle', '/profile/model/net');
+INSERT INTO `cus_model` VALUES (23, 10, '/profile/model/spot_dict.pickle', '/profile/model/net');
 
 -- ----------------------------
 -- Table structure for cus_parkinglot
@@ -50,12 +54,20 @@ CREATE TABLE `cus_parkinglot`  (
   `image_update` datetime(0) NULL DEFAULT NULL COMMENT '渲染日期',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '停车场描述',
   PRIMARY KEY (`parkinglot_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '停车场表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '停车场表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of cus_parkinglot
 -- ----------------------------
-INSERT INTO `cus_parkinglot` VALUES (4, 1, '天通苑-北P+R停车场', '北京市昌平区天通苑北地铁站南', '/profile/upload/2021/09/26/scene1380.jpg', 0, 0, '/profile/upload/2021/09/26/test1.jpg', NULL, '北京市昌平区天通苑北地铁站南');
+INSERT INTO `cus_parkinglot` VALUES (4, 1, '天通苑-北P+R停车场', '北京市昌平区天通苑北地铁站南', '/profile/upload/2021/10/16/191b5917-f391-4966-94f3-3920e57059f5.JPG', 10, 0, '/profile/upload/2021/09/26/test1.jpg', NULL, '北京市昌平区天通苑北地铁站南');
+INSERT INTO `cus_parkinglot` VALUES (6, 1, '绿港家园一区-停车场', '北京市顺义区光明绿港家园一区(减河公园西)', '/profile/upload/2021/09/26/scene1380.jpg', 532, 93, '/profile/upload/2021/09/26/scene1380-show.jpg', '2021-10-16 15:29:39', '北京市顺义区光明绿港家园一区(减河公园西)');
+INSERT INTO `cus_parkinglot` VALUES (7, 1, '大山子停车场', '北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米', '/profile/upload/2021/10/16/ec35e250-26b5-4000-a909-b36edfc1edf5.jpg', 532, 78, '/profile/upload/2021/10/16/ec35e250-26b5-4000-a909-b36edfc1edf5-show.jpg', '2021-10-16 15:34:49', '北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米');
+INSERT INTO `cus_parkinglot` VALUES (8, 1, '北京798艺术中心-停车场', '北京市朝阳区酒仙桥路2号798艺术区', '/profile/upload/2021/10/16/3f258058-10c9-4e13-b38f-56c8d02db265.jpg', 532, 89, '/profile/upload/2021/10/16/3f258058-10c9-4e13-b38f-56c8d02db265-show.jpg', '2021-10-16 15:33:32', '北京市朝阳区酒仙桥路2号798艺术区');
+INSERT INTO `cus_parkinglot` VALUES (9, 1, '停车场(中泰商务楼西北)', '北京市朝阳区朝阳北路中领商务楼', '', 0, 0, '', '2021-10-16 15:47:18', '北京市朝阳区朝阳北路中领商务楼');
+INSERT INTO `cus_parkinglot` VALUES (10, 1, '安泊旺商务楼-停车场', '北京市朝阳区建国路朗廷大厦西(京通苑阳光华苑南)', '', 0, 0, '', '2021-10-18 07:58:31', '北京市顺义区光明绿港家园一区(减河公园西)');
+INSERT INTO `cus_parkinglot` VALUES (11, 1, '超级蜂巢-停车场', '北京市朝阳区高碑店北花园1号', '', 0, 0, '', NULL, '北京市朝阳区高碑店北花园1号');
+INSERT INTO `cus_parkinglot` VALUES (12, 1, '远洋一方林语苑-停车场', '北京市朝阳区双桥东路东1时区西南侧约30米', '', 0, 0, '', NULL, '北京市朝阳区双桥东路东1时区西南侧约30米');
+INSERT INTO `cus_parkinglot` VALUES (13, 5, '新建停车场', '朝阳区', '/profile/upload/2021/09/27/cfe3f55d-d439-468b-92cf-9500cde08187.png', 0, 0, '', NULL, '');
 
 -- ----------------------------
 -- Table structure for cus_test
@@ -93,13 +105,13 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table
 -- ----------------------------
-INSERT INTO `gen_table` VALUES (7, 'cus_model', '模型表', '', NULL, 'CusModel', 'crud', 'com.ruoyi.custom', 'custom', 'model', '模型信息管理', 'kamiu', '0', '/', '{\"parentMenuId\":\"2000\",\"treeName\":\"\",\"treeParentCode\":\"\",\"parentMenuName\":\"停车场管理\",\"treeCode\":\"\"}', 'admin', '2021-09-16 14:10:30', '', '2021-09-17 18:52:07', '');
-INSERT INTO `gen_table` VALUES (8, 'cus_parkinglot', '停车场表', 'cus_model', 'parkinglot_id', 'CusParkinglot', 'sub', 'com.ruoyi.custom', 'custom', 'parkinglot', '停车场信息管理', 'kamiu', '0', '/', '{\"parentMenuId\":\"2000\",\"treeName\":\"\",\"treeParentCode\":\"\",\"parentMenuName\":\"停车场管理\",\"treeCode\":\"\"}', 'admin', '2021-09-16 14:10:30', '', '2021-09-17 18:51:29', '');
+INSERT INTO `gen_table` VALUES (9, 'cus_model', '模型表', NULL, NULL, 'CusModel', 'crud', 'com.ruoyi.custom', 'custom', 'model', '模型', 'kamiu', '0', '/', NULL, 'admin', '2021-10-08 22:25:19', '', NULL, NULL);
+INSERT INTO `gen_table` VALUES (10, 'cus_parkinglot', '停车场表', NULL, NULL, 'CusParkinglot', 'crud', 'com.ruoyi.custom', 'custom', 'parkinglot', '停车场', 'kamiu', '0', '/', NULL, 'admin', '2021-10-08 22:33:36', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for gen_table_column
@@ -129,25 +141,25 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 47 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 61 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of gen_table_column
 -- ----------------------------
-INSERT INTO `gen_table_column` VALUES (33, '7', 'model_id', '模型id', 'bigint(20)', 'Long', 'modelId', '1', '1', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:52:07');
-INSERT INTO `gen_table_column` VALUES (34, '7', 'parkinglot_id', '停车场id', 'bigint(20)', 'Long', 'parkinglotId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:52:07');
-INSERT INTO `gen_table_column` VALUES (35, '7', 'size_model', '规模模型位置', 'varchar(200)', 'String', 'sizeModel', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:52:07');
-INSERT INTO `gen_table_column` VALUES (36, '7', 'reg_model', '识别模型位置', 'varchar(200)', 'String', 'regModel', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:52:07');
-INSERT INTO `gen_table_column` VALUES (37, '8', 'parkinglot_id', '停车场id', 'bigint(20)', 'Long', 'parkinglotId', '1', '1', NULL, NULL, NULL, NULL, NULL, 'EQ', 'input', '', 2, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (38, '8', 'user_id', '停车场所属管理员id', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (39, '8', 'parkinglot_name', '停车场名称', 'varchar(30)', 'String', 'parkinglotName', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 4, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (40, '8', 'parkinglot_loc', '停车场位置', 'varchar(200)', 'String', 'parkinglotLoc', '0', '0', '1', '1', '1', '1', '1', 'LIKE', 'input', '', 5, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (41, '8', 'parkinglot_camera', '摄像头图片文件位置', 'varchar(200)', 'String', 'parkinglotCamera', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (42, '8', 'parkinglot_capacity', '停车场总车位', 'bigint(20)', 'Long', 'parkinglotCapacity', '0', '0', NULL, NULL, '1', '1', '1', 'EQ', 'input', '', 1, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (43, '8', 'parkinglot_spare', '停车场空闲车位', 'bigint(20)', 'Long', 'parkinglotSpare', '0', '0', NULL, NULL, '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (44, '8', 'image', '渲染图位置', 'varchar(200)', 'String', 'image', '0', '0', NULL, NULL, '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (45, '8', 'image_update', '渲染日期', 'datetime', 'Date', 'imageUpdate', '0', '0', NULL, NULL, '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
-INSERT INTO `gen_table_column` VALUES (46, '8', 'remark', '停车场描述', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', '1', NULL, 'EQ', 'textarea', '', 10, 'admin', '2021-09-16 14:10:30', NULL, '2021-09-17 18:51:29');
+INSERT INTO `gen_table_column` VALUES (47, '9', 'model_id', '模型id', 'bigint(20)', 'Long', 'modelId', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2021-10-08 22:25:19', '', NULL);
+INSERT INTO `gen_table_column` VALUES (48, '9', 'parkinglot_id', '停车场id', 'bigint(20)', 'Long', 'parkinglotId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2021-10-08 22:25:19', '', NULL);
+INSERT INTO `gen_table_column` VALUES (49, '9', 'size_model', '规模模型位置', 'varchar(200)', 'String', 'sizeModel', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 3, 'admin', '2021-10-08 22:25:19', '', NULL);
+INSERT INTO `gen_table_column` VALUES (50, '9', 'reg_model', '识别模型位置', 'varchar(200)', 'String', 'regModel', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2021-10-08 22:25:19', '', NULL);
+INSERT INTO `gen_table_column` VALUES (51, '10', 'parkinglot_id', '停车场id', 'bigint(20)', 'Long', 'parkinglotId', '1', '1', NULL, '1', NULL, NULL, NULL, 'EQ', 'input', '', 1, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (52, '10', 'user_id', '停车场所属管理员id', 'bigint(20)', 'Long', 'userId', '0', '0', '1', '1', '1', '1', '1', 'EQ', 'input', '', 2, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (53, '10', 'parkinglot_name', '停车场名称', 'varchar(30)', 'String', 'parkinglotName', '0', '0', NULL, '1', '1', '1', '1', 'LIKE', 'input', '', 3, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (54, '10', 'parkinglot_loc', '停车场位置', 'varchar(200)', 'String', 'parkinglotLoc', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 4, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (55, '10', 'parkinglot_camera', '摄像头图片文件位置', 'varchar(200)', 'String', 'parkinglotCamera', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 5, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (56, '10', 'parkinglot_capacity', '停车场总车位', 'bigint(20)', 'Long', 'parkinglotCapacity', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 6, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (57, '10', 'parkinglot_spare', '停车场空闲车位', 'bigint(20)', 'Long', 'parkinglotSpare', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 7, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (58, '10', 'image', '渲染图位置', 'varchar(200)', 'String', 'image', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'input', '', 8, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (59, '10', 'image_update', '渲染日期', 'datetime', 'Date', 'imageUpdate', '0', '0', NULL, '1', '1', '1', '1', 'EQ', 'datetime', '', 9, 'admin', '2021-10-08 22:33:36', '', NULL);
+INSERT INTO `gen_table_column` VALUES (60, '10', 'remark', '停车场描述', 'varchar(500)', 'String', 'remark', '0', '0', NULL, '1', '1', '1', NULL, 'EQ', 'textarea', '', 10, 'admin', '2021-10-08 22:33:36', '', NULL);
 
 -- ----------------------------
 -- Table structure for qrtz_blob_triggers
@@ -281,7 +293,7 @@ CREATE TABLE `qrtz_scheduler_state`  (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'LAPTOP-PQH8RU8J1632658608943', 1632658806959, 15000);
+INSERT INTO `qrtz_scheduler_state` VALUES ('RuoyiScheduler', 'LAPTOP-PQH8RU8J1634516232483', 1634517646317, 15000);
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -350,9 +362,9 @@ CREATE TABLE `qrtz_triggers`  (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1632658610000, -1, 5, 'PAUSED', 'CRON', 1632658609000, 0, NULL, 2, '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1632658620000, -1, 5, 'PAUSED', 'CRON', 1632658609000, 0, NULL, 2, '');
-INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1632658620000, -1, 5, 'PAUSED', 'CRON', 1632658609000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME1', 'DEFAULT', 'TASK_CLASS_NAME1', 'DEFAULT', NULL, 1634516240000, -1, 5, 'PAUSED', 'CRON', 1634516232000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME2', 'DEFAULT', 'TASK_CLASS_NAME2', 'DEFAULT', NULL, 1634516235000, -1, 5, 'PAUSED', 'CRON', 1634516232000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('RuoyiScheduler', 'TASK_CLASS_NAME3', 'DEFAULT', 'TASK_CLASS_NAME3', 'DEFAULT', NULL, 1634516240000, -1, 5, 'PAUSED', 'CRON', 1634516232000, 0, NULL, 2, '');
 
 -- ----------------------------
 -- Table structure for sys_config
@@ -567,7 +579,7 @@ CREATE TABLE `sys_logininfor`  (
   `msg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '提示消息',
   `login_time` datetime(0) NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 165 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 255 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -637,6 +649,96 @@ INSERT INTO `sys_logininfor` VALUES (161, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (162, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 20:06:33');
 INSERT INTO `sys_logininfor` VALUES (163, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 20:10:25');
 INSERT INTO `sys_logininfor` VALUES (164, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 20:17:01');
+INSERT INTO `sys_logininfor` VALUES (165, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '1', '验证码错误', '2021-09-26 20:28:12');
+INSERT INTO `sys_logininfor` VALUES (166, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 20:28:14');
+INSERT INTO `sys_logininfor` VALUES (167, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:07:35');
+INSERT INTO `sys_logininfor` VALUES (168, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:09:09');
+INSERT INTO `sys_logininfor` VALUES (169, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:12:42');
+INSERT INTO `sys_logininfor` VALUES (170, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:13:51');
+INSERT INTO `sys_logininfor` VALUES (171, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:16:20');
+INSERT INTO `sys_logininfor` VALUES (172, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:18:31');
+INSERT INTO `sys_logininfor` VALUES (173, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:30:55');
+INSERT INTO `sys_logininfor` VALUES (174, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:32:20');
+INSERT INTO `sys_logininfor` VALUES (175, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:39:27');
+INSERT INTO `sys_logininfor` VALUES (176, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:50:23');
+INSERT INTO `sys_logininfor` VALUES (177, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:52:29');
+INSERT INTO `sys_logininfor` VALUES (178, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:54:14');
+INSERT INTO `sys_logininfor` VALUES (179, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-26 21:55:55');
+INSERT INTO `sys_logininfor` VALUES (180, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 08:11:59');
+INSERT INTO `sys_logininfor` VALUES (181, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 08:16:40');
+INSERT INTO `sys_logininfor` VALUES (182, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 08:16:45');
+INSERT INTO `sys_logininfor` VALUES (183, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 08:22:16');
+INSERT INTO `sys_logininfor` VALUES (184, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 08:22:18');
+INSERT INTO `sys_logininfor` VALUES (185, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 08:33:50');
+INSERT INTO `sys_logininfor` VALUES (186, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 09:02:25');
+INSERT INTO `sys_logininfor` VALUES (187, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 09:02:30');
+INSERT INTO `sys_logininfor` VALUES (188, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 09:13:08');
+INSERT INTO `sys_logininfor` VALUES (189, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 09:13:49');
+INSERT INTO `sys_logininfor` VALUES (190, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 09:37:42');
+INSERT INTO `sys_logininfor` VALUES (191, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 10:00:25');
+INSERT INTO `sys_logininfor` VALUES (192, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 10:00:31');
+INSERT INTO `sys_logininfor` VALUES (193, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 10:03:14');
+INSERT INTO `sys_logininfor` VALUES (194, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 10:03:17');
+INSERT INTO `sys_logininfor` VALUES (195, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-09-27 10:03:31');
+INSERT INTO `sys_logininfor` VALUES (196, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 10:03:38');
+INSERT INTO `sys_logininfor` VALUES (197, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-09-27 21:40:32');
+INSERT INTO `sys_logininfor` VALUES (198, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-08 22:08:01');
+INSERT INTO `sys_logininfor` VALUES (199, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-09 20:25:05');
+INSERT INTO `sys_logininfor` VALUES (200, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-09 21:08:57');
+INSERT INTO `sys_logininfor` VALUES (201, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-09 21:09:31');
+INSERT INTO `sys_logininfor` VALUES (202, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-09 21:09:34');
+INSERT INTO `sys_logininfor` VALUES (203, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-09 21:09:52');
+INSERT INTO `sys_logininfor` VALUES (204, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-09 21:09:56');
+INSERT INTO `sys_logininfor` VALUES (205, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-09 21:10:48');
+INSERT INTO `sys_logininfor` VALUES (206, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-09 21:10:53');
+INSERT INTO `sys_logininfor` VALUES (207, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 08:05:14');
+INSERT INTO `sys_logininfor` VALUES (208, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 10:36:49');
+INSERT INTO `sys_logininfor` VALUES (209, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '1', '验证码错误', '2021-10-11 10:42:27');
+INSERT INTO `sys_logininfor` VALUES (210, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 10:42:29');
+INSERT INTO `sys_logininfor` VALUES (211, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 11:02:20');
+INSERT INTO `sys_logininfor` VALUES (212, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 13:30:27');
+INSERT INTO `sys_logininfor` VALUES (213, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '1', '验证码错误', '2021-10-11 13:32:53');
+INSERT INTO `sys_logininfor` VALUES (214, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 13:32:55');
+INSERT INTO `sys_logininfor` VALUES (215, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 13:51:04');
+INSERT INTO `sys_logininfor` VALUES (216, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 13:59:59');
+INSERT INTO `sys_logininfor` VALUES (217, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:02:55');
+INSERT INTO `sys_logininfor` VALUES (218, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:04:38');
+INSERT INTO `sys_logininfor` VALUES (219, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:05:31');
+INSERT INTO `sys_logininfor` VALUES (220, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:09:35');
+INSERT INTO `sys_logininfor` VALUES (221, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:16:03');
+INSERT INTO `sys_logininfor` VALUES (222, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-11 14:21:09');
+INSERT INTO `sys_logininfor` VALUES (223, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 13:27:25');
+INSERT INTO `sys_logininfor` VALUES (224, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 13:52:02');
+INSERT INTO `sys_logininfor` VALUES (225, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:01:52');
+INSERT INTO `sys_logininfor` VALUES (226, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:23:18');
+INSERT INTO `sys_logininfor` VALUES (227, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:28:15');
+INSERT INTO `sys_logininfor` VALUES (228, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:31:01');
+INSERT INTO `sys_logininfor` VALUES (229, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:32:07');
+INSERT INTO `sys_logininfor` VALUES (230, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:33:00');
+INSERT INTO `sys_logininfor` VALUES (231, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:51:41');
+INSERT INTO `sys_logininfor` VALUES (232, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:56:09');
+INSERT INTO `sys_logininfor` VALUES (233, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 14:56:57');
+INSERT INTO `sys_logininfor` VALUES (234, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:16:45');
+INSERT INTO `sys_logininfor` VALUES (235, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:17:54');
+INSERT INTO `sys_logininfor` VALUES (236, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:27:37');
+INSERT INTO `sys_logininfor` VALUES (237, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:37:30');
+INSERT INTO `sys_logininfor` VALUES (238, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:37:35');
+INSERT INTO `sys_logininfor` VALUES (239, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:38:09');
+INSERT INTO `sys_logininfor` VALUES (240, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:38:22');
+INSERT INTO `sys_logininfor` VALUES (241, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:38:30');
+INSERT INTO `sys_logininfor` VALUES (242, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:38:35');
+INSERT INTO `sys_logininfor` VALUES (243, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:38:40');
+INSERT INTO `sys_logininfor` VALUES (244, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:39:46');
+INSERT INTO `sys_logininfor` VALUES (245, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:39:52');
+INSERT INTO `sys_logininfor` VALUES (246, 'parking', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:40:33');
+INSERT INTO `sys_logininfor` VALUES (247, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:40:37');
+INSERT INTO `sys_logininfor` VALUES (248, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:41:23');
+INSERT INTO `sys_logininfor` VALUES (249, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:41:28');
+INSERT INTO `sys_logininfor` VALUES (250, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:45:23');
+INSERT INTO `sys_logininfor` VALUES (251, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '退出成功', '2021-10-16 15:45:32');
+INSERT INTO `sys_logininfor` VALUES (252, 'user', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-16 15:45:38');
+INSERT INTO `sys_logininfor` VALUES (253, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-18 07:57:30');
+INSERT INTO `sys_logininfor` VALUES (254, 'admin', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', '0', '登录成功', '2021-10-18 08:17:25');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -668,7 +770,7 @@ CREATE TABLE `sys_menu`  (
 INSERT INTO `sys_menu` VALUES (1, '系统管理', 0, 1, '#', '', 'M', '0', '1', '', 'fa fa-gear', 'admin', '2021-09-16 12:25:13', '', NULL, '系统管理目录');
 INSERT INTO `sys_menu` VALUES (2, '系统监控', 0, 2, '#', '', 'M', '0', '1', '', 'fa fa-video-camera', 'admin', '2021-09-16 12:25:13', '', NULL, '系统监控目录');
 INSERT INTO `sys_menu` VALUES (3, '系统工具', 0, 3, '#', '', 'M', '0', '1', '', 'fa fa-bars', 'admin', '2021-09-16 12:25:13', '', NULL, '系统工具目录');
-INSERT INTO `sys_menu` VALUES (4, '若依官网', 0, 4, 'http://ruoyi.vip', 'menuBlank', 'C', '0', '1', '', 'fa fa-location-arrow', 'admin', '2021-09-16 12:25:13', '', NULL, '若依官网地址');
+INSERT INTO `sys_menu` VALUES (4, '若依官网', 0, 4, '/test/returnimage', 'menuBlank', 'C', '0', '1', '', 'fa fa-location-arrow', 'admin', '2021-09-16 12:25:13', 'admin', '2021-10-11 10:37:06', '若依官网地址');
 INSERT INTO `sys_menu` VALUES (100, '用户管理', 2025, 1, '/system/user', 'menuItem', 'C', '0', '1', 'system:user:view', 'fa fa-user-o', 'admin', '2021-09-16 12:25:13', 'admin', '2021-09-17 19:04:55', '用户管理菜单');
 INSERT INTO `sys_menu` VALUES (101, '角色管理', 1, 2, '/system/role', '', 'C', '0', '1', 'system:role:view', 'fa fa-user-secret', 'admin', '2021-09-16 12:25:13', '', NULL, '角色管理菜单');
 INSERT INTO `sys_menu` VALUES (102, '菜单管理', 1, 3, '/system/menu', '', 'C', '0', '1', 'system:menu:view', 'fa fa-th-list', 'admin', '2021-09-16 12:25:13', '', NULL, '菜单管理菜单');
@@ -770,11 +872,11 @@ INSERT INTO `sys_menu` VALUES (2022, '停车场信息管理修改', 2019, 3, '#'
 INSERT INTO `sys_menu` VALUES (2023, '停车场信息管理删除', 2019, 4, '#', '', 'F', '0', '1', 'custom:parkinglot:remove', '#', 'admin', '2021-09-17 18:53:04', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2024, '停车场信息管理导出', 2019, 5, '#', '', 'F', '0', '1', 'custom:parkinglot:export', '#', 'admin', '2021-09-17 18:53:04', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2025, '用户信息管理', 0, 5, '#', 'menuItem', 'M', '0', '1', '', 'fa fa-users', 'admin', '2021-09-17 19:04:02', 'admin', '2021-09-17 19:04:34', '');
-INSERT INTO `sys_menu` VALUES (2026, '停车场规模初始化', 2000, 3, '#', 'menuItem', 'C', '0', '1', NULL, '#', 'admin', '2021-09-17 19:07:06', '', NULL, '');
+INSERT INTO `sys_menu` VALUES (2026, '停车场规模初始化', 2000, 3, '/custom/pinit', 'menuItem', 'C', '0', '1', 'custom:parkinglot:view', '#', 'admin', '2021-09-17 19:07:06', 'admin', '2021-10-16 13:54:36', '');
 INSERT INTO `sys_menu` VALUES (2027, '停车场识别模型初始化', 2026, 1, '#', 'menuItem', 'F', '0', '1', NULL, '#', 'admin', '2021-09-17 19:07:52', '', NULL, '');
 INSERT INTO `sys_menu` VALUES (2028, '车位识别模型初始化', 2026, 2, '#', 'menuItem', 'F', '0', '1', '', '#', 'admin', '2021-09-17 19:08:13', 'admin', '2021-09-17 19:08:28', '');
 INSERT INTO `sys_menu` VALUES (2029, '车位识别系统', 0, 7, '#', 'menuItem', 'M', '0', '1', NULL, 'fa fa-motorcycle', 'admin', '2021-09-17 19:11:53', '', NULL, '');
-INSERT INTO `sys_menu` VALUES (2030, '车位识别', 2029, 1, '/test/returnimage', 'menuItem', 'C', '0', '1', '', '#', 'admin', '2021-09-17 19:12:06', 'admin', '2021-09-17 20:46:16', '');
+INSERT INTO `sys_menu` VALUES (2030, '车位识别', 2029, 1, 'custom/pinit/predict', 'menuItem', 'C', '0', '1', 'custom:pinit:view', '#', 'admin', '2021-09-17 19:12:06', 'admin', '2021-10-16 14:52:15', '');
 
 -- ----------------------------
 -- Table structure for sys_notice
@@ -823,7 +925,7 @@ CREATE TABLE `sys_oper_log`  (
   `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime(0) NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 188 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 231 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -916,6 +1018,49 @@ INSERT INTO `sys_oper_log` VALUES (184, '用户管理', 2, 'com.ruoyi.web.contro
 INSERT INTO `sys_oper_log` VALUES (185, '用户管理', 2, 'com.ruoyi.web.controller.system.SysUserController.editSave()', 'POST', 1, 'admin', '研发部门', '/system/user/edit', '127.0.0.1', '内网IP', '{\"userId\":[\"101\"],\"deptId\":[\"104\"],\"userName\":[\"停车场管理员\"],\"dept.deptName\":[\"劲松街道分公司\"],\"phonenumber\":[\"\"],\"email\":[\"\"],\"loginName\":[\"parking\"],\"sex\":[\"0\"],\"role\":[\"3\"],\"remark\":[\"\"],\"status\":[\"0\"],\"roleIds\":[\"3\"],\"postIds\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 19:22:36');
 INSERT INTO `sys_oper_log` VALUES (186, '用户管理', 2, 'com.ruoyi.web.controller.system.SysUserController.editSave()', 'POST', 1, 'admin', '研发部门', '/system/user/edit', '127.0.0.1', '内网IP', '{\"userId\":[\"102\"],\"deptId\":[\"\"],\"userName\":[\"用户\"],\"dept.deptName\":[\"\"],\"phonenumber\":[\"\"],\"email\":[\"\"],\"loginName\":[\"user\"],\"sex\":[\"0\"],\"role\":[\"4\"],\"remark\":[\"\"],\"status\":[\"0\"],\"roleIds\":[\"4\"],\"postIds\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 19:23:05');
 INSERT INTO `sys_oper_log` VALUES (187, '停车场信息管理', 1, 'com.ruoyi.custom.controller.CusParkinglotController.addSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/add', '127.0.0.1', '内网IP', '{\"userId\":[\"1\"],\"parkinglotName\":[\"天通苑-北P+R停车场\"],\"parkinglotLoc\":[\"北京市昌平区天通苑北地铁站南\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/26/5b97ef00-d776-4204-98ad-85fbda1f5b00.png\"],\"remark\":[\"北京市昌平区天通苑北地铁站南\"],\"btSelectAll\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 19:50:16');
+INSERT INTO `sys_oper_log` VALUES (188, '停车场信息管理', 3, 'com.ruoyi.custom.controller.CusParkinglotController.remove()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/remove', '127.0.0.1', '内网IP', '{\"ids\":[\"5\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 20:47:40');
+INSERT INTO `sys_oper_log` VALUES (189, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"4\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"天通苑-北P+R停车场\"],\"parkinglotLoc\":[\"北京市昌平区天通苑北地铁站南\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/26/scene1380.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市昌平区天通苑北地铁站南\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"spot_dict.pickle\"],\"cusModelList[0].regModel\":[\"net\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 20:50:46');
+INSERT INTO `sys_oper_log` VALUES (190, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"7\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"大山子停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/26/scene1380.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"spot_dict1.pickle\"],\"cusModelList[0].regModel\":[\"net1\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 20:51:12');
+INSERT INTO `sys_oper_log` VALUES (191, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"9\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"停车场(中泰商务楼西北)\"],\"parkinglotLoc\":[\"北京市朝阳区朝阳北路中领商务楼\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/26/scene1380.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区朝阳北路中领商务楼\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"spot_dict1.pickle\"],\"cusModelList[0].regModel\":[\"net2\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 20:51:24');
+INSERT INTO `sys_oper_log` VALUES (192, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/tes\"],\"target\":[\"menuItem\"],\"perms\":[\"\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 21:04:21');
+INSERT INTO `sys_oper_log` VALUES (193, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"custom/parkinglot/init\"],\"target\":[\"menuItem\"],\"perms\":[\"\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 21:05:39');
+INSERT INTO `sys_oper_log` VALUES (194, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"8\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"北京798艺术中心-停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"parkinglotCamera\":[\"\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"\"],\"cusModelList[0].regModel\":[\"\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-26 21:57:06');
+INSERT INTO `sys_oper_log` VALUES (195, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"8\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"北京798艺术中心-停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/27/055230da-d78c-4016-872f-bd608ac1fe72.png\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"\"],\"cusModelList[0].regModel\":[\"\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:12:36');
+INSERT INTO `sys_oper_log` VALUES (196, '停车场信息管理', 1, 'com.ruoyi.custom.controller.CusParkinglotController.addSave()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/parkinglot/add', '127.0.0.1', '内网IP', '{\"userId\":[\"3\"],\"parkinglotName\":[\"新建停车场\"],\"parkinglotLoc\":[\"朝阳区\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/27/cb8524c5-44d0-4ef0-879c-8c16d5c1ab1f.png\"],\"remark\":[\"\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"\"],\"cusModelList[0].regModel\":[\"\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:14:36');
+INSERT INTO `sys_oper_log` VALUES (197, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"13\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"5\"],\"parkinglotName\":[\"新建停车场\"],\"parkinglotLoc\":[\"朝阳区\"],\"parkinglotCamera\":[\"\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"\"],\"imageUpdate\":[\"\"],\"remark\":[\"\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"\"],\"cusModelList[0].regModel\":[\"\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:14:51');
+INSERT INTO `sys_oper_log` VALUES (198, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"13\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"5\"],\"parkinglotName\":[\"新建停车场\"],\"parkinglotLoc\":[\"朝阳区\"],\"parkinglotCamera\":[\"/profile/upload/2021/09/27/cfe3f55d-d439-468b-92cf-9500cde08187.png\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"\"],\"imageUpdate\":[\"\"],\"remark\":[\"\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"\"],\"cusModelList[0].regModel\":[\"\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:15:14');
+INSERT INTO `sys_oper_log` VALUES (199, '模型信息管理', 3, 'com.ruoyi.custom.controller.CusModelController.remove()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/model/remove', '127.0.0.1', '内网IP', '{\"ids\":[\"4\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:16:29');
+INSERT INTO `sys_oper_log` VALUES (200, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.updateAvatar()', 'POST', 1, 'user', NULL, '/system/user/profile/updateAvatar', '127.0.0.1', '内网IP', '', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:17:23');
+INSERT INTO `sys_oper_log` VALUES (201, '岗位管理', 1, 'com.ruoyi.web.controller.system.SysPostController.addSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/post/add', '127.0.0.1', '内网IP', '{\"postName\":[\"街道经理\"],\"postCode\":[\"4\"],\"postSort\":[\"4\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:22:54');
+INSERT INTO `sys_oper_log` VALUES (202, '岗位管理', 2, 'com.ruoyi.web.controller.system.SysPostController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/post/edit', '127.0.0.1', '内网IP', '{\"postId\":[\"5\"],\"postName\":[\"街道经理\"],\"postCode\":[\"SA\"],\"postSort\":[\"4\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:23:08');
+INSERT INTO `sys_oper_log` VALUES (203, '岗位管理', 1, 'com.ruoyi.web.controller.system.SysPostController.addSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/post/add', '127.0.0.1', '内网IP', '{\"postName\":[\"区域经理\"],\"postCode\":[\"QA\"],\"postSort\":[\"5\"],\"status\":[\"0\"],\"remark\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 08:23:56');
+INSERT INTO `sys_oper_log` VALUES (204, '模型信息管理', 3, 'com.ruoyi.custom.controller.CusModelController.remove()', 'POST', 1, 'parking', '劲松街道分公司', '/custom/model/remove', '127.0.0.1', '内网IP', '{\"ids\":[\"9,12\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 10:00:58');
+INSERT INTO `sys_oper_log` VALUES (205, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/parkinglot/init\"],\"target\":[\"menuItem\"],\"perms\":[\"\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-09-27 21:41:07');
+INSERT INTO `sys_oper_log` VALUES (206, '代码生成', 3, 'com.ruoyi.generator.controller.GenController.remove()', 'POST', 1, 'admin', '朝外街道分公司', '/tool/gen/remove', '127.0.0.1', '内网IP', '{\"ids\":[\"7,8\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-08 22:25:08');
+INSERT INTO `sys_oper_log` VALUES (207, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '朝外街道分公司', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":[\"cus_model\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-08 22:25:19');
+INSERT INTO `sys_oper_log` VALUES (208, '代码生成', 6, 'com.ruoyi.generator.controller.GenController.importTableSave()', 'POST', 1, 'admin', '朝外街道分公司', '/tool/gen/importTable', '127.0.0.1', '内网IP', '{\"tables\":[\"cus_parkinglot\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-08 22:33:36');
+INSERT INTO `sys_oper_log` VALUES (209, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.updateAvatar()', 'POST', 1, 'admin', '朝外街道分公司', '/system/user/profile/updateAvatar', '127.0.0.1', '内网IP', '', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-09 21:09:23');
+INSERT INTO `sys_oper_log` VALUES (210, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.updateAvatar()', 'POST', 1, 'parking', '劲松街道分公司', '/system/user/profile/updateAvatar', '127.0.0.1', '内网IP', '', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-09 21:09:49');
+INSERT INTO `sys_oper_log` VALUES (211, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.updateAvatar()', 'POST', 1, 'user', NULL, '/system/user/profile/updateAvatar', '127.0.0.1', '内网IP', '', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-09 21:10:10');
+INSERT INTO `sys_oper_log` VALUES (212, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"8\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"北京798艺术中心-停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"parkinglotCamera\":[\"/profile/upload/2021/10/11/db7c6b36-80ec-4a81-9523-cf91d24b96e7.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"btSelectAll\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-11 08:06:27');
+INSERT INTO `sys_oper_log` VALUES (213, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"8\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"北京798艺术中心-停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"parkinglotCamera\":[\"/profile/upload/2021/10/11/d7d3fcea-a59a-4f10-b7bc-41ee35f3cbe5.png\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"btSelectAll\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-11 09:06:44');
+INSERT INTO `sys_oper_log` VALUES (214, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"4\"],\"parentId\":[\"0\"],\"menuType\":[\"C\"],\"menuName\":[\"若依官网\"],\"url\":[\"/test/returnimage\"],\"target\":[\"menuBlank\"],\"perms\":[\"\"],\"orderNum\":[\"4\"],\"icon\":[\"fa fa-location-arrow\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-11 10:37:06');
+INSERT INTO `sys_oper_log` VALUES (215, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit\"],\"target\":[\"menuItem\"],\"perms\":[\"\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:29:26');
+INSERT INTO `sys_oper_log` VALUES (216, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:pinit:view\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:29:41');
+INSERT INTO `sys_oper_log` VALUES (217, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit/init\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:pinit:view\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:30:41');
+INSERT INTO `sys_oper_log` VALUES (218, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2030\"],\"parentId\":[\"2029\"],\"menuType\":[\"C\"],\"menuName\":[\"车位识别\"],\"url\":[\"custom/pinit\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:pinit:view\"],\"orderNum\":[\"1\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:31:00');
+INSERT INTO `sys_oper_log` VALUES (219, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit/init\"],\"target\":[\"menuItem\"],\"perms\":[\"\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:36:52');
+INSERT INTO `sys_oper_log` VALUES (220, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit/init\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:parkinglot:view\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:53:07');
+INSERT INTO `sys_oper_log` VALUES (221, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2026\"],\"parentId\":[\"2000\"],\"menuType\":[\"C\"],\"menuName\":[\"停车场规模初始化\"],\"url\":[\"/custom/pinit\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:parkinglot:view\"],\"orderNum\":[\"3\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:54:36');
+INSERT INTO `sys_oper_log` VALUES (222, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"4\"],\"parkinglotCapacity\":[\"10\"],\"userId\":[\"1\"],\"parkinglotName\":[\"天通苑-北P+R停车场\"],\"parkinglotLoc\":[\"北京市昌平区天通苑北地铁站南\"],\"parkinglotCamera\":[\"\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市昌平区天通苑北地铁站南\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"spot_dict.pickle\"],\"cusModelList[0].regModel\":[\"net\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 13:56:26');
+INSERT INTO `sys_oper_log` VALUES (223, '模型信息管理', 3, 'com.ruoyi.custom.controller.CusModelController.remove()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/model/remove', '127.0.0.1', '内网IP', '{\"ids\":[\"6,7,8\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 14:23:33');
+INSERT INTO `sys_oper_log` VALUES (224, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"4\"],\"parkinglotCapacity\":[\"10\"],\"userId\":[\"1\"],\"parkinglotName\":[\"天通苑-北P+R停车场\"],\"parkinglotLoc\":[\"北京市昌平区天通苑北地铁站南\"],\"parkinglotCamera\":[\"/profile/upload/2021/10/16/191b5917-f391-4966-94f3-3920e57059f5.JPG\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市昌平区天通苑北地铁站南\"],\"btSelectAll\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 14:28:59');
+INSERT INTO `sys_oper_log` VALUES (225, '菜单管理', 2, 'com.ruoyi.web.controller.system.SysMenuController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/system/menu/edit', '127.0.0.1', '内网IP', '{\"menuId\":[\"2030\"],\"parentId\":[\"2029\"],\"menuType\":[\"C\"],\"menuName\":[\"车位识别\"],\"url\":[\"custom/pinit/predict\"],\"target\":[\"menuItem\"],\"perms\":[\"custom:pinit:view\"],\"orderNum\":[\"1\"],\"icon\":[\"#\"],\"visible\":[\"0\"],\"isRefresh\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 14:52:15');
+INSERT INTO `sys_oper_log` VALUES (226, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"8\"],\"parkinglotCapacity\":[\"0\"],\"userId\":[\"1\"],\"parkinglotName\":[\"北京798艺术中心-停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"parkinglotCamera\":[\"/profile/upload/2021/10/16/3f258058-10c9-4e13-b38f-56c8d02db265.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/10/11/d7d3fcea-a59a-4f10-b7bc-41ee35f3cbe5-show.png\"],\"imageUpdate\":[\"2021-10-16\"],\"remark\":[\"北京市朝阳区酒仙桥路2号798艺术区\"],\"btSelectAll\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 15:33:02');
+INSERT INTO `sys_oper_log` VALUES (227, '停车场信息管理', 2, 'com.ruoyi.custom.controller.CusParkinglotController.editSave()', 'POST', 1, 'admin', '朝外街道分公司', '/custom/parkinglot/edit', '127.0.0.1', '内网IP', '{\"parkinglotId\":[\"7\"],\"parkinglotCapacity\":[\"532\"],\"userId\":[\"1\"],\"parkinglotName\":[\"大山子停车场\"],\"parkinglotLoc\":[\"北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米\"],\"parkinglotCamera\":[\"/profile/upload/2021/10/16/ec35e250-26b5-4000-a909-b36edfc1edf5.jpg\"],\"parkinglotSpare\":[\"0\"],\"image\":[\"/profile/upload/2021/09/26/test1.jpg\"],\"imageUpdate\":[\"\"],\"remark\":[\"北京市朝阳区酒仙桥北路北京市朝阳区大望京公园南侧约80米\"],\"index\":[\"1\"],\"cusModelList[0].sizeModel\":[\"/profile/model/spot_dict.pickle\"],\"cusModelList[0].regModel\":[\"/profile/model/net\"],\"btSelectAll\":[\"\"],\"btSelectItem\":[\"\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 15:34:29');
+INSERT INTO `sys_oper_log` VALUES (228, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.update()', 'POST', 1, 'admin', '朝外街道分公司', '/system/user/profile/update', '127.0.0.1', '内网IP', '{\"id\":[\"\"],\"userName\":[\"阿梓从小就很可爱\"],\"phonenumber\":[\"15888888888\"],\"email\":[\"ry@163.com\"],\"sex\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 15:37:18');
+INSERT INTO `sys_oper_log` VALUES (229, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.update()', 'POST', 1, 'parking', '劲松街道分公司', '/system/user/profile/update', '127.0.0.1', '内网IP', '{\"id\":[\"\"],\"userName\":[\"嘉然今天吃什么\"],\"phonenumber\":[\"13811111111\"],\"email\":[\"824265574@qq.com\"],\"sex\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 15:38:02');
+INSERT INTO `sys_oper_log` VALUES (230, '个人信息', 2, 'com.ruoyi.web.controller.system.SysProfileController.update()', 'POST', 1, 'user', NULL, '/system/user/profile/update', '127.0.0.1', '内网IP', '{\"id\":[\"\"],\"userName\":[\"乃琳Queen\"],\"phonenumber\":[\"13811121111\"],\"email\":[\"15574@qq.com\"],\"sex\":[\"1\"]}', '{\"msg\":\"操作成功\",\"code\":0}', 0, NULL, '2021-10-16 15:39:07');
 
 -- ----------------------------
 -- Table structure for sys_post
@@ -933,7 +1078,7 @@ CREATE TABLE `sys_post`  (
   `update_time` datetime(0) NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sys_post
@@ -941,6 +1086,8 @@ CREATE TABLE `sys_post`  (
 INSERT INTO `sys_post` VALUES (1, 'PA', '停车场管理员', 1, '0', 'admin', '2021-09-16 12:25:13', 'admin', '2021-09-26 19:21:19', '');
 INSERT INTO `sys_post` VALUES (2, 'GT', '游客', 2, '0', 'admin', '2021-09-16 12:25:13', 'admin', '2021-09-26 19:21:38', '');
 INSERT INTO `sys_post` VALUES (3, 'HP', '居民', 3, '0', 'admin', '2021-09-16 12:25:13', 'admin', '2021-09-26 19:21:54', '');
+INSERT INTO `sys_post` VALUES (5, 'SA', '街道经理', 4, '0', 'admin', '2021-09-27 08:22:54', 'admin', '2021-09-27 08:23:08', '');
+INSERT INTO `sys_post` VALUES (6, 'QA', '区域经理', 5, '0', 'admin', '2021-09-27 08:23:56', '', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_role
@@ -1079,11 +1226,11 @@ CREATE TABLE `sys_user`  (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2021-09-26 20:17:01', '2021-09-16 12:25:13', 'admin', '2021-09-16 12:25:13', '', '2021-09-26 20:17:01', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '阿梓从小就很可爱', '00', 'ry@163.com', '15888888888', '1', '/profile/avatar/2021/10/09/ce5f3c6d-da92-44e0-811f-7d84a2ffce82.png', '29c67a30398638269fe600f73a054934', '111111', '0', '0', '127.0.0.1', '2021-10-18 08:17:26', '2021-09-16 12:25:13', 'admin', '2021-09-16 12:25:13', '', '2021-10-18 08:17:25', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '8e6d98b90472783cc73c17047ddccf36', '222222', '0', '0', '127.0.0.1', '2021-09-16 12:25:13', '2021-09-16 12:25:13', 'admin', '2021-09-16 12:25:13', '', NULL, '测试员');
 INSERT INTO `sys_user` VALUES (100, NULL, 'lili', 'lili', '00', '', '', '0', '', '3fa6fe9ae8b1e7e4cc8bcc895d97f098', '7ed733', '0', '2', '127.0.0.1', '2021-09-16 13:43:41', NULL, 'admin', '2021-09-16 13:09:31', '', '2021-09-16 13:43:40', NULL);
-INSERT INTO `sys_user` VALUES (101, 104, 'parking', '停车场管理员', '00', '', '', '0', '/profile/avatar/2021/09/18/3cbcb6d7-c21a-4f15-8881-5ebc1ddeb765.png', 'bb03a02242afbcf205c81e9800af5612', 'e8182e', '0', '0', '127.0.0.1', '2021-09-26 19:13:38', NULL, 'admin', '2021-09-17 19:15:06', 'admin', '2021-09-26 19:22:36', '');
-INSERT INTO `sys_user` VALUES (102, NULL, 'user', '用户', '00', '', '', '0', '', 'b80df959969a523a348f9d7d850bc093', 'bf8484', '0', '0', '127.0.0.1', '2021-09-18 10:49:47', NULL, 'admin', '2021-09-17 19:15:23', 'admin', '2021-09-26 19:23:05', '');
+INSERT INTO `sys_user` VALUES (101, 104, 'parking', '嘉然今天吃什么', '00', '824265574@qq.com', '13811111111', '1', '/profile/avatar/2021/10/09/b123ff63-22c2-4bea-9d26-75ac4ddc6687.png', 'bb03a02242afbcf205c81e9800af5612', 'e8182e', '0', '0', '127.0.0.1', '2021-10-16 15:39:53', NULL, 'admin', '2021-09-17 19:15:06', 'admin', '2021-10-16 15:39:52', '');
+INSERT INTO `sys_user` VALUES (102, NULL, 'user', '乃琳Queen', '00', '15574@qq.com', '13811121111', '1', '/profile/avatar/2021/10/09/3621957e-8498-46d2-87ff-edfcffee0376.png', 'b80df959969a523a348f9d7d850bc093', 'bf8484', '0', '0', '127.0.0.1', '2021-10-16 15:45:38', NULL, 'admin', '2021-09-17 19:15:23', 'admin', '2021-10-16 15:45:38', '');
 
 -- ----------------------------
 -- Table structure for sys_user_online
@@ -1107,7 +1254,7 @@ CREATE TABLE `sys_user_online`  (
 -- ----------------------------
 -- Records of sys_user_online
 -- ----------------------------
-INSERT INTO `sys_user_online` VALUES ('a7a34dfa-b63b-4c5e-ac84-5afdf252d1ce', 'admin', '朝外街道分公司', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', 'on_line', '2021-09-26 19:15:36', '2021-09-26 20:17:01', 1800000);
+INSERT INTO `sys_user_online` VALUES ('89186227-b8c4-48fc-9b1d-6359dd82b725', 'admin', '朝外街道分公司', '127.0.0.1', '内网IP', 'Chrome 9', 'Windows 10', 'on_line', '2021-10-18 07:57:27', '2021-10-18 08:17:26', 1800000);
 
 -- ----------------------------
 -- Table structure for sys_user_post
